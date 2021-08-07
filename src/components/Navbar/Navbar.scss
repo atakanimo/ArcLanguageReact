@@ -1,0 +1,22 @@
+.navbarComponent {
+    height: 10vh;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+
+    .navbarNavbar {
+        Input {
+            width: 30vh;
+        }
+        .mr-auto {
+            margin-right: 1.5rem;
+        }
+        .colNavRight {
+            display: flex;
+            align-items: center;
+            .collapse {
+                justify-content: flex-end;
+            }
+        }
+    }
+}

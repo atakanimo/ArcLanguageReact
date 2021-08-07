@@ -1,0 +1,42 @@
+$large: 1200px;
+$medium: 992px;
+$small: 768px;
+
+.allFormClass {
+    height: 90vh;
+    background-color: #ececec;
+
+    .noLogin {
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        a{
+            color: black;
+        }
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        .col-md-6 {
+            label {
+                font-size: large ;
+                margin-top: 1.7rem;
+                margin-bottom: 0.4rem;
+            }
+            button {
+                margin-top: 3.8rem;
+                width: 15vh;
+            }
+            input {
+                width: 45vh;
+                padding: 8px;
+                border-radius: 0.5rem;
+            }
+        }
+    }
+}

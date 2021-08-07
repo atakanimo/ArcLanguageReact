@@ -1,0 +1,59 @@
+.Table {
+     width: 100vmax;
+    .BootstrapTable {
+        align-items: center;
+
+        th {
+            vertical-align: middle; //DİKEY ORTALA
+            font-size: medium;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            text-align: center;
+        }
+        td {
+            font-size: small;
+            text-align: center;
+            padding-right: 4px;
+            vertical-align: middle;
+            padding-left: 4px;
+            max-width: 21vh;
+        }
+        .button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            Button {
+                width: 4.7rem;
+                margin: 0;
+                font-size: large;
+                padding: 0.3rem;
+                margin: 4px;
+                margin-right: 10px;
+
+                .link {
+                    color: white;
+                    text-decoration: white;
+                }
+            }
+        }
+    }
+    .loadingScreen{
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .noLogin {
+        width: 100vw;
+        height: 90vh;
+        background-color: gainsboro;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        a{
+            color: black;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+.getNameComponenet {
+  background-color: gainsboro;
+  height: 90vh;
+  width: 100vw; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+ 
+  p {
+    //   margin-bottom: 1rem;
+      font-size: large;
+  }
+  .form {
+
+    .form-control {
+        margin-bottom: 1rem;
+        width: 35vh;
+        padding: 15px;
+        font-size: large;
+    }
+    .sendButton {
+        margin-top: 0rem; 
+        float: right;
+        padding: 12px;    
+        border:0px;
+        border-radius: 6px;
+    }
+  }
+}
