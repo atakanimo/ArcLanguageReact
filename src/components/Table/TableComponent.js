@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Button, Table, Spinner } from 'reactstrap';
+import { Button, Table } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchArcApi, searchArc } from '../../redux/action/apiActions';
 import './Table.scss';
@@ -12,7 +12,6 @@ export const TableComponent = (props) => {
   const dispatch = useDispatch();
 
   const isLogIn = useSelector((state) => state.isLogInReducer.isLogin);
-  // console.log("local.Table",localStorage);
   const searchedValue = useSelector(
     (state) => state.searchReducer.searchedValue
   );
@@ -152,7 +151,6 @@ export const TableComponent = (props) => {
           <div className="loadingScreen">
             <CircularProgress style={{width: "7rem", height: "7rem", color:"GrayText"}} />
           </div>
-          //style={{width: "5rem", height: "5rem"}}
         )
       ) : (
         <div className="noLogin">

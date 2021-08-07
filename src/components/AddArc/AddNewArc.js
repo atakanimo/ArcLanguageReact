@@ -5,7 +5,6 @@ import { Col, Container, Row } from 'reactstrap';
 import './AddArc.scss';
 import { NewArc } from '../../redux/action/apiActions';
 import alertify from 'alertifyjs';
-import { anyError } from '../../redux/action/errorHandlingAction';
 
 export const AddNewArc = (props) => {
   const dispatch = useDispatch();
@@ -23,8 +22,7 @@ export const AddNewArc = (props) => {
     addedArc.createUser = userName;
     addedArc[name] = value;
     setAddedArc({ ...addedArc });
-    console.log('addedarc' + JSON.stringify(addedArc));
-    console.log(userName);
+    console.log('addedarc' + JSON.stringify(addedArc));;
   }
 
   useEffect(() => {

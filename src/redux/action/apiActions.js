@@ -3,7 +3,7 @@ import * as axios from 'axios';
 
 export const fetchArcApi = (id) => {
   return (dispatch) => {
-    dispatch({ type: 'GET_ARC_REQUEST' });
+    dispatch({ type: ActionTypes.GET_ARC_REQUEST });
     let url = 'https://localhost:44313/api/ARCLanguageApi';
     if (id) {
       url = url + '/' + id;
@@ -11,7 +11,7 @@ export const fetchArcApi = (id) => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        dispatch({ type: 'GET_DATA_SUCCESS', payload: data });
+        dispatch({ type: ActionTypes.GET_DATA_SUCCESS, payload: data });
       });
   };
 };
@@ -38,30 +38,32 @@ export const NewArc = (Arc) => {
         .post('https://localhost:44313/api/ARCLanguageApi/', Arc)
         .then((response) => console.log('NewArc ', response));
       dispatch({ type: ActionTypes.NEW_ARC, payload: Arc });
-      dispatch({ type: 'ERROR_HANDLING_ADD_ARC', payload: [] });
-      dispatch({ type: 'ANY_ERROR', payload: false });
+      dispatch({ type: ActionTypes.ERROR_HANDLING_ADD_ARC, payload: [] });
+      dispatch({ type: ActionTypes.ANY_ERROR, payload: false });
     } catch (error) {
       console.log('NewArc catch error', error.response.data.title);
       dispatch({
-        type: 'ERROR_HANDLING_ADD_ARC',
+        type: ActionTypes.ERROR_HANDLING_ADD_ARC,
         payload: error.response.data.detail,
       });
-      dispatch({ type: 'ANY_ERROR', payload: true });
+      dispatch({ type: ActionTypes.ANY_ERROR, payload: true });
     }
   };
 };
 
-export const EditArc = async (Arc, id) => {
-  try {
-    return await axios
-      .put('https://localhost:44313/api/ARCLanguageApi/' + id, Arc)
-      .then((response) => console.log(response));
-    // dispatch({ type: "EDIT_ARC" });
-  } catch (error) {
-    console.log(error);
-  }
-  return Promise.reject();
+export const EditArc = (Arc, id) => {
+  return async (dispatch) => {
+    try {
+      await axios
+        .put('https://localhost:44313/api/ARCLanguageApi/' + id,Arc)
+        .then((response) => console.log('EditActive response', response));
+      dispatch({ type: ActionTypes.EDIT_ARC });
+    } catch (error) {
+      console.log('EditArc error', error);
+    }
+  };
 };
+
 export const EditActiveArc = (Arc) => {
   return async (dispatch) => {
     try {
@@ -82,7 +84,7 @@ export const searchArc = (key) => {
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
-          dispatch({ type: 'GET_SEARCHED_DATA', payload: data });
+          dispatch({ type: ActionTypes.GET_SEARCHED_DATA, payload: data });
         });
     } catch (error) {
       console.log(error);

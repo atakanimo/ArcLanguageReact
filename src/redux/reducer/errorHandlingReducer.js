@@ -1,3 +1,5 @@
+import { ActionTypes } from "../action/ActionTypes";
+
 const initialState = {
   ErrorNewArc: [],
   AnyError: false,
@@ -5,9 +7,9 @@ const initialState = {
 
 const errorHandlingReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'ERROR_HANDLING_ADD_ARC':
+    case ActionTypes.ERROR_HANDLING_ADD_ARC:
       return { ...state, ErrorNewArc: action.payload };
-    case 'ANY_ERROR':
+    case ActionTypes.ANY_ERROR:
       return { ...state, AnyError: action.payload };
     default:
       return state;

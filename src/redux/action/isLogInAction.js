@@ -1,7 +1,9 @@
+import { ActionTypes } from "./ActionTypes";
+
 export const loginName = () => ({
-    type: "LOGIN_NAME"
+    type: ActionTypes.LOGIN_NAME
   });
 
   export const isLogIn = () => ({
-    type: "IS_LOG_IN"
+    type: ActionTypes.IS_LOG_IN
   });

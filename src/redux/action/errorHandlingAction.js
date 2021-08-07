@@ -1,6 +1,8 @@
+import { ActionTypes } from './ActionTypes';
+
 export const errorHandlingAddArc = () => ({
-    type:"ERROR_HANDLING_ADD_ARC"
+  type: ActionTypes.ERROR_HANDLING_ADD_ARC,
 });
 export const anyError = () => ({
-    type:"ANY_ERROR"
+  type: ActionTypes.ANY_ERROR,
 });

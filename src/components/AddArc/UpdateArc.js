@@ -7,6 +7,7 @@ import { Col, Container, Row } from "reactstrap";
 import "./AddArc.scss";
 
 export const UpdateArc = (props) => {
+  const dispatch = useDispatch();
   const arcId = props.match.params.arcId;  //GET ID FROM PARAMS
   const [updatedArc, setUpdateArc] = useState({});
   console.log("updateConsole" + JSON.stringify(updatedArc));
@@ -22,7 +23,8 @@ export const UpdateArc = (props) => {
   const handleSubmitUpdate = (e) => {
     e.preventDefault();
     if (updatedArc.keY_NAME && updatedArc.keY_VALUE) {   
-      EditArc(updatedArc, arcId).then(response => {
+      dispatch(EditArc(updatedArc,arcId)).then(response => {
+        // dispatch(NewArc(addedArc))
         alertify.success("Güncellendi");
         props.history.push('/arclanguage');
       });      

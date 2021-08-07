@@ -1,5 +1,7 @@
+import { ActionTypes } from "./ActionTypes";
+
 export const search = () => ({
-    type: "SEARCHED_VALUE"
+    type: ActionTypes.SEARCHED_VALUE
   });
 
   
