@@ -1,10 +1,11 @@
 import { ActionTypes } from './ActionTypes';
 import * as axios from 'axios';
+import configData from '../../config.json';
 
 export const fetchArcApi = (id) => {
   return (dispatch) => {
     dispatch({ type: ActionTypes.GET_ARC_REQUEST });
-    let url = 'https://localhost:44313/api/ARCLanguageApi';
+    let url = configData.SERVER_URL;
     if (id) {
       url = url + '/' + id;
     }
@@ -21,7 +22,7 @@ export const DeleteArc = (id) => {
     console.log('id', id);
     try {
       await axios
-        .delete('https://localhost:44313/api/ARCLanguageApi/' + id)
+        .delete(configData.SERVER_URL + id)
         .then((response) => console.log('Delete response', response));
       dispatch({ type: ActionTypes.DELETE_ARC, payload: id });
     } catch (error) {
@@ -35,7 +36,7 @@ export const NewArc = (Arc) => {
   return async (dispatch) => {
     try {
       await axios
-        .post('https://localhost:44313/api/ARCLanguageApi/', Arc)
+        .post(configData.SERVER_URL, Arc)
         .then((response) => console.log('NewArc ', response));
       dispatch({ type: ActionTypes.NEW_ARC, payload: Arc });
       dispatch({ type: ActionTypes.ERROR_HANDLING_ADD_ARC, payload: [] });
@@ -55,7 +56,7 @@ export const EditArc = (Arc, id) => {
   return async (dispatch) => {
     try {
       await axios
-        .put('https://localhost:44313/api/ARCLanguageApi/' + id,Arc)
+        .put(configData.SERVER_URL + id, Arc)
         .then((response) => console.log('EditActive response', response));
       dispatch({ type: ActionTypes.EDIT_ARC });
     } catch (error) {
@@ -68,7 +69,7 @@ export const EditActiveArc = (Arc) => {
   return async (dispatch) => {
     try {
       await axios
-        .put('https://localhost:44313/api/ARCLanguageApi/isActive/' + Arc.id)
+        .put(configData.SERVER_URL + 'isActive/' + Arc.id)
         .then((response) => console.log('EditActiveArc response', response));
       dispatch({ type: ActionTypes.EDIT_ARC_ACTIVE, payload: Arc.id });
     } catch (error) {
@@ -80,7 +81,7 @@ export const EditActiveArc = (Arc) => {
 export const searchArc = (key) => {
   return (dispatch) => {
     try {
-      let url = 'https://localhost:44313/api/ARCLanguageApi/search/' + key;
+      let url = configData.SERVER_URL + 'search/' + key;
       fetch(url)
         .then((response) => response.json())
         .then((data) => {

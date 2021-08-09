@@ -17,7 +17,6 @@ export const AddNewArc = (props) => {
   );
 
   function handleAddChange(event) {
-    debugger;
     const { name, value } = event.target;
     addedArc.createUser = userName;
     addedArc[name] = value;
