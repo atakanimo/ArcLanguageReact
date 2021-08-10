@@ -21,6 +21,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import './Navbar.scss';
 import { withRouter } from 'react-router-dom';
+import configData from '../../config.json';
 
 const NavbarComponent = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +31,7 @@ const NavbarComponent = (props) => {
   const dispatch = useDispatch();
 
   const downloadResxFile = (key) => {
-    window.open('https://localhost:44313/api/ARCLanguageApi/getFile/' + key);
+    window.open(configData.SERVER_URL + 'getFile/' + key);
   };
 
   useEffect(() => {

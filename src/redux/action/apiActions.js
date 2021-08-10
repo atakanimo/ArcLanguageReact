@@ -36,7 +36,7 @@ export const NewArc = (Arc) => {
   return async (dispatch) => {
     try {
       await axios
-        .post(configData.SERVER_URL, Arc)
+        .post(configData.SERVER_URL + "add", Arc)
         .then((response) => console.log('NewArc ', response));
       dispatch({ type: ActionTypes.NEW_ARC, payload: Arc });
       dispatch({ type: ActionTypes.ERROR_HANDLING_ADD_ARC, payload: [] });
@@ -56,8 +56,8 @@ export const EditArc = (Arc, id) => {
   return async (dispatch) => {
     try {
       await axios
-        .put(configData.SERVER_URL + id, Arc)
-        .then((response) => console.log('EditActive response', response));
+        .post(configData.SERVER_URL + 'update/' + id, Arc)
+        .then((response) => console.log('Edit response', response));
       dispatch({ type: ActionTypes.EDIT_ARC });
     } catch (error) {
       console.log('EditArc error', error);
@@ -69,7 +69,7 @@ export const EditActiveArc = (Arc) => {
   return async (dispatch) => {
     try {
       await axios
-        .put(configData.SERVER_URL + 'isActive/' + Arc.id)
+        .post(configData.SERVER_URL + 'isActive/' + Arc.id)
         .then((response) => console.log('EditActiveArc response', response));
       dispatch({ type: ActionTypes.EDIT_ARC_ACTIVE, payload: Arc.id });
     } catch (error) {
