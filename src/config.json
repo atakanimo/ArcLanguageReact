@@ -1,3 +1,4 @@
 {
-  "SERVER_URL": "https://localhost:44313/api/ARCLanguageApi/"
+  "LOCAL_URL": "https://localhost:44313/api/ARCLanguageApi/",
+  "SERVER_URL": "https://arclanguageapi.azure-api.net/v1/api/ARCLanguageApi"
 }
