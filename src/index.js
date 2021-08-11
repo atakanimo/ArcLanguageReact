@@ -10,11 +10,11 @@ import 'alertifyjs/build/css/alertify.css';
 
 ReactDOM.render(
   <BrowserRouter>
-  <React.StrictMode>
+  <React.Fragment>
     <Provider store={store}>
       <App />
     </Provider>
-  </React.StrictMode>
+  </React.Fragment>
   </BrowserRouter>,
   document.getElementById('root')
 );
