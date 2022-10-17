@@ -31,7 +31,7 @@ const NavbarComponent = (props) => {
   const dispatch = useDispatch();
 
   const downloadResxFile = (key) => {
-    window.open(configData.SERVER_URL + 'getFile/' + key);
+    window.open(configData.LOCAL_URL + 'getFile/' + key);
   };
 
   useEffect(() => {

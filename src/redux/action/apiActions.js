@@ -5,7 +5,7 @@ import configData from '../../config.json';
 export const fetchArcApi = (id) => {
   return (dispatch) => {
     dispatch({ type: ActionTypes.GET_ARC_REQUEST });
-    let url = configData.SERVER_URL;
+    let url = configData.LOCAL_URL;
     if (id) {
       url = url + '/' + id;
     }
@@ -22,7 +22,7 @@ export const DeleteArc = (id) => {
     console.log('id', id);
     try {
       await axios
-        .delete(configData.SERVER_URL + id)
+        .delete(configData.LOCAL_URL + id)
         .then((response) => console.log('Delete response', response));
       dispatch({ type: ActionTypes.DELETE_ARC, payload: id });
     } catch (error) {
@@ -36,7 +36,7 @@ export const NewArc = (Arc) => {
   return async (dispatch) => {
     try {
       await axios
-        .post(configData.SERVER_URL + "add", Arc)
+        .post(configData.LOCAL_URL + 'add', Arc)
         .then((response) => console.log('NewArc ', response));
       dispatch({ type: ActionTypes.NEW_ARC, payload: Arc });
       dispatch({ type: ActionTypes.ERROR_HANDLING_ADD_ARC, payload: [] });
@@ -56,7 +56,7 @@ export const EditArc = (Arc, id) => {
   return async (dispatch) => {
     try {
       await axios
-        .post(configData.SERVER_URL + 'update/' + id, Arc)
+        .post(configData.LOCAL_URL + 'update/' + id, Arc)
         .then((response) => console.log('Edit response', response));
       dispatch({ type: ActionTypes.EDIT_ARC });
     } catch (error) {
@@ -69,7 +69,7 @@ export const EditActiveArc = (Arc) => {
   return async (dispatch) => {
     try {
       await axios
-        .post(configData.SERVER_URL + 'isActive/' + Arc.id)
+        .post(configData.LOCAL_URL + 'isActive/' + Arc.id)
         .then((response) => console.log('EditActiveArc response', response));
       dispatch({ type: ActionTypes.EDIT_ARC_ACTIVE, payload: Arc.id });
     } catch (error) {
@@ -81,7 +81,7 @@ export const EditActiveArc = (Arc) => {
 export const searchArc = (key) => {
   return (dispatch) => {
     try {
-      let url = configData.SERVER_URL + 'search/' + key;
+      let url = configData.LOCAL_URL + 'search/' + key;
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
