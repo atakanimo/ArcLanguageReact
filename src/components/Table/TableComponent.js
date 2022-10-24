@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { Button, Table } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchArcApi, searchArc } from '../../redux/action/apiActions';
+import { searchArc } from '../../redux/action/apiActions';
 import './Table.scss';
 import { EditActiveArc, DeleteArc } from '../../redux/action/apiActions';
 import alertify from 'alertifyjs';
 import { Link } from 'react-router-dom';
 import { CircularProgress } from '@material-ui/core';
+import data from "../../data"
 
 export const TableComponent = (props) => {
   const dispatch = useDispatch();
@@ -16,25 +17,25 @@ export const TableComponent = (props) => {
     (state) => state.searchReducer.searchedValue
   );
 
-  useEffect(() => {
-    getDataFromApi();
-  }, []);
+  // useEffect(() => {
+  //   getDataFromApi();
+  // }, []);
 
-  useEffect(() => {
-    getSearchDataFromSearchApi(searchedValue.search);
-  }, [searchedValue]);
+  // useEffect(() => {
+  //   getSearchDataFromSearchApi(searchedValue.search);
+  // }, [searchedValue]);
 
-  const getDataFromApi = () => {
-    dispatch(fetchArcApi());
-  };
-  const getSearchDataFromSearchApi = (key) => {
-    dispatch(searchArc(key));
-  };
+  // const getDataFromApi = () => {
+  //   dispatch(fetchArcApi());
+  // };
+  // const getSearchDataFromSearchApi = (key) => {
+  //   dispatch(searchArc(key));
+  // };
 
-  const getData = useSelector((state) => state.apiReducers.getArc);
-  const searchedValueFromDB = useSelector(
-    (state) => state.apiReducers.searchedData
-  );
+  // const getData = useSelector((state) => state.apiReducers.getArc);
+  // const searchedValueFromDB = useSelector(
+  //   (state) => state.apiReducers.searchedData
+  // );
 
   const onDelete = (e, data) => {
     e.preventDefault();
@@ -56,7 +57,7 @@ export const TableComponent = (props) => {
   return (
     <div className="Table">
       {isLogIn == true ? (
-        getData && getData.length > 0 ? (
+        data && data.length > 0 ? (
           <Table size="sm" className="BootstrapTable" striped bordered hover>
             <thead>
               <tr>
@@ -72,8 +73,8 @@ export const TableComponent = (props) => {
                 <th>EDİT</th>
               </tr>
             </thead>
-            {searchedValue.search == '' ? (
-              getData.map(
+            {data == '' ? (
+              data.map(
                 (
                   data, //data id
                   index
@@ -111,8 +112,8 @@ export const TableComponent = (props) => {
               ) //IF SEARCH INPUT ISN'T EMPTY
             ) : (
               <>
-                {searchedValueFromDB.length > 0
-                  ? searchedValueFromDB.map((item, index) => (
+                {data.length > 0
+                  ? data.map((item, index) => (
                       <tbody>
                         <tr key={item.id}>
                           <td>{index + 1}</td>

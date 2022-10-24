@@ -154,4 +154,6 @@ const NavbarComponent = (props) => {
     </div>
   );
 };
+// export default NavbarComponent;
 export default withRouter(NavbarComponent);
+

@@ -1,8 +1,8 @@
 import './App.scss';
-import  NavbarComponent  from './components/Navbar/NavbarComponent';
+import NavbarComponent from './components/Navbar/NavbarComponent';
 import { Main } from './components/Main/Main';
 import { NotFound } from './components/NotFound/NotFound';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes, Switch } from 'react-router-dom';
 import { UpdateArc } from './components/AddArc/UpdateArc';
 import { AddNewArc } from './components/AddArc/AddNewArc';
 import { GetName } from './components/inputName/GetName';
@@ -10,7 +10,7 @@ import { GetName } from './components/inputName/GetName';
 function App() {
   return (
     <div className="App">
-      <NavbarComponent />
+      {/* <NavbarComponent />
       <Switch>
         <Route path="/" exact component={GetName} />
         <Route path="/getname" component={GetName} />
@@ -18,7 +18,7 @@ function App() {
         <Route path="/editarclan/arcId=:arcId" component={UpdateArc} />
         <Route path="/addarc" component={AddNewArc} />
         <Route component={NotFound} />
-      </Switch>
+      </Switch> */}
     </div>
   );
 }
